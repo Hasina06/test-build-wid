@@ -1,13 +1,13 @@
 <template>
-  <div class="fixed top-0 full-header w-full p-0 shadow-md md:shadow-none">
-    <div class="px-[10%] w-full py-2 hidden lg:block bg-light-blue text-sm text-white">
+  <div class="fixed top-0 full-header w-full p-0 shadow-md md:shadow-lg">
+    <div class="px-[12%] w-full py-2 hidden lg:block bg-light-blue text-sm text-white">
       <ContactBar :contacts="contacts" />
     </div>
     <header
-      class="lg:py-3 lg:px-[10%] w-full lg:flex lg:justify-between lg:items-center bg-transparent lg:bg-dark-blue text-white shadow-md lg:shadow-none"
+      class="lg:py-3 lg:px-[7%] w-full h-[100px] lg:h-auto lg:flex lg:justify-between lg:items-center bg-red-transparent lg:bg-dark-blue text-white shadow-md lg:shadow-none"
     >
       <div
-        class="mobile-menu relative px-5 md:px-[6%] py-3 md:py-5 lg:pb-0 flex justify-between items-center z-50 bg-dark-blue"
+        class="mobile-menu relative px-5 md:px-[6%] py-3 md:py-5 lg:py-0 flex justify-between items-center z-50 bg-dark-blue"
       >
         <RouterLink to="/">
           <div class="logo-container flex justify-center items-center">
@@ -50,35 +50,55 @@ import LogoSecondary from '@/assets/images/logo-2.png'
 
 const isMenu = ref<boolean>(true)
 
-const links = [
-  { id: 1, name: 'Accueil', path: '/', key: 'home' },
-  // { id: 2, name: 'A Propos', path: '/about', key: 'about' },
-  { id: 3, name: 'Services', path: '/services', key: 'services' },
-  { id: 4, name: 'Contact', path: '/contact', key: 'contact' },
-  { id: 5, name: "Blog's", path: '/blogs', key: 'blog' },
-]
-
 const contacts = ref([
-  { id: 1, name: '+261XXXXXXXXX', icon: 'bx bxs-phone bx-sm', href: 'tel:+261XXXXXXXXX' },
+  { id: 1, name: '+261345063080', icon: 'bx bxs-phone bx-sm', href: 'tel:+261345063080' },
   {
     id: 2,
-    name: 'buildwid@gmail.com',
+    name: 'contact@buildwid.com',
     icon: 'bx bxs-envelope bx-sm',
-    href: 'mailto:buildwid@gmail.com',
+    href: 'mailto:contact@buildwid.com',
   },
   {
     id: 3,
-    name: 'LinkedIn',
+    name: 'build-wid',
     icon: 'bx bxl-linkedin-square bx-sm',
-    href: 'https://linkedin.com/in/buildwid',
+    href: 'https://www.linkedin.com/company/build-wid/',
+  },
+  // {
+  //   id: 4,
+  //   name: 'Facebook',
+  //   icon: 'bx bxl-facebook-square bx-sm',
+  //   href: 'https://facebook.com/buildwid',
+  // },
+])
+
+const links = [
+  { id: 1, name: 'Accueil', path: '/', key: 'home', subMenu: [] },
+  {
+    id: 2,
+    name: 'A Propos',
+    path: '/about',
+    key: 'about',
+    subMenu: [
+      // { id: 21, name: 'Qui sommes-nous', path: '/about#about' },
+      // { id: 22, name: 'Nos valeurs', path: '/about#values' },
+    ],
   },
   {
-    id: 4,
-    name: 'Facebook',
-    icon: 'bx bxl-facebook-square bx-sm',
-    href: 'https://facebook.com/buildwid',
+    id: 3,
+    name: 'Services',
+    path: '/services',
+    key: 'services',
+    subMenu: [
+      { id: 31, name: 'Véctorisation des plans architecturaux', path: '/' },
+      { id: 32, name: 'Mise en copropriété', path: '/' },
+      { id: 33, name: 'Plans topographique', path: '/' },
+      { id: 34, name: 'Plans Corps de Rue Simpliﬁé et Complexe (PCRS et PCRC)', path: '/' },
+    ],
   },
-])
+  { id: 4, name: 'Contact', path: '/contact', key: 'contact', subMenu: [] },
+  { id: 5, name: 'Actualités', path: '/blogs', key: 'blog', subMenu: [] },
+]
 
 const toggleMenu = () => {
   isMenu.value = !isMenu.value

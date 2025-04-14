@@ -7,7 +7,7 @@
         target="_blank"
         :aria-label="`Contact: ${contact.name}`"
       >
-        <span class="flex items-center text-white">
+        <span class="flex items-center text-white italic">
           <i :class="contact.icon"></i>
           <span class="ml-1">{{ contact.name }}</span>
         </span>
